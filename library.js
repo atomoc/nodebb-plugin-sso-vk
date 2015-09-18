@@ -43,7 +43,6 @@
 						if (err) {
 							return done(err);
 						}
-						console.log(user)
 						done(null, user);
 					});
 				}));

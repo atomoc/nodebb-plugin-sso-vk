@@ -24,7 +24,7 @@
     "url": "https://github.com/atomoc/nodebb-plugin-sso-vk/issues"
   },
   "dependencies": {
-    "passport-vkontakte": "^0.2.3"
+    "passport-vkontakte": "^0.3.0"
   },
   "homepage": "https://github.com/atomoc/nodebb-plugin-sso-vk",
   "_id": "nodebb-plugin-sso-vk@1.0.0",
