@@ -1,11 +1,11 @@
 {
   "name": "nodebb-plugin-sso-vk",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "NodeBB Vkontakte SSO",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DriverPackSolution/nodebb-plugin-sso-vk"
+    "url": "https://github.com/atomoc/nodebb-plugin-sso-vk"
   },
   "keywords": [
     "nodebb",
@@ -15,10 +15,7 @@
     "single sign on",
     "registration"
   ],
-  "author": {
-    "name": "Sergej Saveljev",
-    "email": "sergej@eyrini.ru"
-  },
+  "author": "Sergej Saveljev <sergej@eyrini.ru>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/atomoc/nodebb-plugin-sso-vk/issues"
@@ -27,14 +24,14 @@
     "passport-vkontakte": "^0.3.0"
   },
   "homepage": "https://github.com/atomoc/nodebb-plugin-sso-vk",
-  "_id": "nodebb-plugin-sso-vk@1.0.0",
   "_from": "nodebb-plugin-sso-vk@latest",
   "_npmVersion": "2.0.0",
   "maintainers": [
-    {
-      "name": "artx",
-      "email": "artx@drp.su"
-    }
+    "atomoc <atomoc@gmail.com>"
   ],
-  "directories": {}
+  "directories": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
