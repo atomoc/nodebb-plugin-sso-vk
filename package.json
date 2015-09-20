@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-sso-vk",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "NodeBB Vkontakte SSO",
   "main": "library.js",
   "repository": {

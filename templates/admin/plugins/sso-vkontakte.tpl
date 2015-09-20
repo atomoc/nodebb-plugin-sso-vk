@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-lg-9">
+	<div class="col-xs-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">Vkontakte Social Authentication</div>
 			<div class="panel-body">
@@ -29,15 +29,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-3">
-		<div class="panel panel-default">
-			<div class="panel-heading">Control Panel</div>
-			<div class="panel-body">
-				<button class="btn btn-primary" id="save">Save Settings</button>
-			</div>
-		</div>
-	</div>
 </div>
+
+<button id="save" class="floating-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+	<i class="material-icons">save</i>
+</button>
 
 <script>
 	require(['settings'], function(Settings) {
