@@ -18,7 +18,17 @@
 		}
 	});
 
-	var Vkontakte = {};
+	var Vkontakte = {
+		settings: undefined
+	};
+
+	Vkontakte.preinit = function(data, callback) {
+		// Settings
+		meta.settings.get('sso-vkontakte', function(err, settings) {
+			Vkontakte.settings = settings;
+			callback(null, data);
+		});
+	};
 	
 	Vkontakte.init = function(data, callback) {
 		function render(req, res, next) {
@@ -78,9 +88,11 @@
 			} else {
 				// New User
 				var success = function(uid) {
-					// Save yandex-specific information to the user
+					// Save vkontakte-specific information to the user
 					User.setUserField(uid, 'vkontakteid', vkontakteID);
 					db.setObjectField('vkontakteid:uid', vkontakteID, uid);
+					var autoConfirm = Vkontakte.settings && Vkontakte.settings.autoconfirm === "on" ? 1: 0;
+					User.setUserField(uid, 'email:confirmed', autoConfirm);
 					
 					// Save their photo, if present
 					if (picture) {
@@ -99,7 +111,7 @@
 					}
 					
 					if (!uid) {
-						User.create({username: username, email: email}, function(err, uid) {
+						User.create({username: displayName, email: email}, function(err, uid) {
 							if(err) {
 								return callback(err);
 							}
