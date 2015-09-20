@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-sso-vk",
-  "version": "2.0.5",
+  "version": "2.0.7",
   "description": "NodeBB Vkontakte SSO",
   "main": "library.js",
   "repository": {
@@ -20,21 +20,16 @@
   "bugs": {
     "url": "https://github.com/atomoc/nodebb-plugin-sso-vk/issues"
   },
+  "readme": "",
+  "readmeFilename": "README.md",
   "dependencies": {
     "passport-vkontakte": "^0.4.0"
   },
   "nbbpm": {
-    "compatibility": "^0.6.0"
+    "compatibility": "^0.8.0"
   },
   "homepage": "https://github.com/atomoc/nodebb-plugin-sso-vk",
-  "_from": "nodebb-plugin-sso-vk@latest",
-  "_npmVersion": "2.0.0",
   "maintainers": [
     "atomoc <atomoc@gmail.com>"
-  ],
-  "directories": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  ]
 }
