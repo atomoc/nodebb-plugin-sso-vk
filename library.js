@@ -1,3 +1,5 @@
+/* globals winston */
+
 (function(module) {
 	"use strict";
 
@@ -26,14 +28,14 @@
 	Vkontakte.init = function(data, callback) {
 		var hostHelpers = require.main.require('./src/routes/helpers');
 
-		function render(req, res, next) {
+		function render(_, res) {
 			res.render('admin/plugins/sso-vkontakte', {});
 		}
 
 		data.router.get('/admin/plugins/sso-vkontakte', data.middleware.admin.buildHeader, render);
 		data.router.get('/api/admin/plugins/sso-vkontakte', render);
 
-		hostHelpers.setupPageRoute(data.router, '/deauth/vkontakte', data.middleware, [data.middleware.requireUser], function (req, res) {
+		hostHelpers.setupPageRoute(data.router, '/deauth/vkontakte', data.middleware, [data.middleware.requireUser], function (_, res) {
 			res.render('plugins/sso-vkontakte/deauth', {
 				service: "Vkontakte",
 			});
@@ -48,11 +50,11 @@
 			});
 		});
 
-		meta.settings.get('sso-vkontakte', function(err, settings) {
+		meta.settings.get('sso-vkontakte', function(_, settings) {
 			Vkontakte.settings = settings;
 			callback();
 		});
-	};;
+	};
 
 	Vkontakte.getAssociation = function (data, callback) {
 		User.getUserField(data.uid, 'vkontakteid', function (err, vkontakteid) {
@@ -91,16 +93,16 @@
 				profileFields: ['id', 'emails', 'name', 'displayName']
 			}, function(req, _, __, ___, profile, done) {
 
-				if (req.hasOwnProperty('user') && req.user.hasOwnProperty('uid') && req.user.uid > 0) {
+				if (hasOwnProperty(req, 'user') && hasOwnProperty(req.user, 'uid') && req.user.uid > 0) {
 					User.setUserField(req.user.uid, 'vkontakteid', profile.id);
 					db.setObjectField('vkontakteid:uid', profile.id, req.user.uid);
 
 					return authenticationController.onSuccessfulLogin(req, req.user.uid, function (err) {
-						done(null, req.user);
+						done(err, !err ? req.user : null);
 					});
 				}
 
-				var email = profile.hasOwnProperty('emails')
+				var email = hasOwnProperty(profile, 'emails')
 					? profile.emails[0].value
 					: (profile.username ? profile.username : profile.id) + '@users.noreply.vkontakte.com';
 
@@ -220,6 +222,10 @@
 			callback(null, uid);
 		});
 	};
+
+	function hasOwnProperty(obj, prop) {
+		return Object.prototype.hasOwnProperty.call(obj, prop);
+	}
 
 	module.exports = Vkontakte;
 }(module));

@@ -31,5 +31,8 @@
   "homepage": "https://github.com/atomoc/nodebb-plugin-sso-vk",
   "maintainers": [
     "atomoc <atomoc@gmail.com>"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^7.17.0"
+  }
 }

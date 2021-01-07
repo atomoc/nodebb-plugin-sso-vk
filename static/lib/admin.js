@@ -1,5 +1,5 @@
 'use strict';
-/* globals $, app, socket, require */
+/* globals $, app, socket, define */
 
 define('admin/plugins/sso-vkontakte', ['settings'], function(Settings) {
 
