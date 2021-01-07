@@ -23,13 +23,16 @@
   "readme": "",
   "readmeFilename": "README.md",
   "dependencies": {
-    "passport-vkontakte": "^0.4.0"
+    "passport-vkontakte": "^0.5.0"
   },
   "nbbpm": {
-    "compatibility": "^0.8.0"
+    "compatibility": "^1.16.x"
   },
   "homepage": "https://github.com/atomoc/nodebb-plugin-sso-vk",
   "maintainers": [
     "atomoc <atomoc@gmail.com>"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^7.17.0"
+  }
 }

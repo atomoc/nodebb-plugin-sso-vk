@@ -6,7 +6,7 @@
 				<form role="form" class="sso-vkontakte-settings">
 					<p>
 						Register a new <strong>Vkontakte Application</strong> via 
-						<a href="http://vk.com/dev">Application Development</a>
+						<a href="https://vk.com/dev">Application Development</a>
 					</p>
 					<div class="form-group">
 						<label for="Client ID">Client ID</label>
